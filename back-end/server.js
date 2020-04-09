@@ -28,7 +28,7 @@ const recipeSchema = new mongoose.Schema({
     title: String,
     uploadedBy: String,
     ingredients: String,
-    description: String,
+    directions: String,
     path: String,
     saved: Boolean,
 });
@@ -54,7 +54,7 @@ app.post('/api/recipes', async (req, res) => {
         title: req.body.title,
         uploadedBy: req.body.uploadedBy,
         ingredients: req.body.ingredients,
-        description: req.body.description,
+        directions: req.body.directions,
         path: req.body.path,
         saved: false
     });
@@ -80,9 +80,24 @@ app.get('/api/recipes', async (req, res) => {
 
 app.delete('/api/recipes/:id', async (req, res) => {
     try {
+        console.log(req.params.id);
         await Recipe.deleteOne({
             _id: req.params.id
         });
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+app.put('/api/recipes/:id', async (req, res) => {
+    try {
+        let recipe = await Recipe.findOne({
+            _id: req.params.id
+        });
+        recipe.saved = req.body.saved;
+        recipe.save();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
