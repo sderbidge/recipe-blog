@@ -41,7 +41,7 @@ export default {
         this.recipes = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async unfavoriteRecipe(recipe) {
@@ -53,7 +53,7 @@ export default {
         alert("Unfavorited " + recipe.title);
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     }
   }

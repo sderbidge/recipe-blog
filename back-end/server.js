@@ -62,7 +62,7 @@ app.post('/api/recipes', async (req, res) => {
         await recipe.save();
         res.send(recipe);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         res.sendStatus(500);
     }
 });
@@ -73,20 +73,20 @@ app.get('/api/recipes', async (req, res) => {
         let recipes = await Recipe.find();
         res.send(recipes);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         res.sendStatus(500);
     }
 });
 
 app.delete('/api/recipes/:id', async (req, res) => {
     try {
-        console.log(req.params.id);
+        //console.log(req.params.id);
         await Recipe.deleteOne({
             _id: req.params.id
         });
         res.sendStatus(200);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         res.sendStatus(500);
     }
 });
@@ -100,7 +100,7 @@ app.put('/api/recipes/:id', async (req, res) => {
         recipe.save();
         res.sendStatus(200);
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         res.sendStatus(500);
     }
 });

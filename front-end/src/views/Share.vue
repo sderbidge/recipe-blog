@@ -53,7 +53,7 @@ export default {
         this.recipes = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async upload() {
@@ -71,7 +71,7 @@ export default {
         });
         this.addItem = r2.data;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     }
   }

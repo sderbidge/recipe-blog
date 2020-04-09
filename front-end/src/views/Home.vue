@@ -37,17 +37,17 @@ export default {
         this.recipes = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async deleteRecipe(recipe) {
       try {
-        console.log(recipe);
+        //console.log(recipe);
         await axios.delete("/api/recipes/" + recipe._id);
         this.getRecipes();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async favoriteRecipe(recipe) {
@@ -59,7 +59,7 @@ export default {
         alert("Favorited " + recipe.title);
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     }
   }
