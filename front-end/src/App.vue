@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <div class="header">
-      <router-link to="/">
-        <div class="logo">
+    <div id="header">
+      <div id="brand">
+        <router-link to="/">
           <img src="/logo.png" />
-        </div>
-      </router-link>
-      <router-link to="/favorite-recipes">Favorite Recipes</router-link>
-      <router-link to="/share">Share</router-link>
+        </router-link>
+      </div>
+      <div id="side">
+        <router-link to="/favorite-recipes">
+          <div class="menu-item fav-recipes">
+            <img src="/fav-recipes.png" />
+          </div>
+        </router-link>
+        <router-link to="/share">
+          <div class="menu-item">
+            <img src="/share.png" />
+          </div>
+        </router-link>
+      </div>
     </div>
     <div class="content">
       <router-view />
@@ -32,11 +42,54 @@ body {
 }
 
 /* Header */
-.header {
-  display: flex;
+#header {
   padding: 10px 100px 0px 100px;
-  background-color: #6b4111;
+  background-color: #72441a;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-template-areas: "none brand side";
+  margin-bottom: 50px;
+}
+
+#header a:hover {
+  color: #f08e4d;
+}
+
+#brand {
+  grid-area: brand;
+  display: flex;
+  justify-content: center;
+}
+
+#brand img {
+  height: 200px;
+}
+
+#side {
+  grid-area: side;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#side img {
+  width: 200px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-recipes {
+  margin-right: 50px;
+}
+
+.menu-item a {
+  text-decoration: none;
   color: #cc711b;
+  font-size: 15px;
 }
 
 .content {
@@ -53,7 +106,23 @@ body {
 }
 
 .footer a {
+  font-size: 15px;
+  font: Arial;
   color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: rgb(49, 49, 49);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:visited {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 h1 {
