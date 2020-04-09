@@ -1,32 +1,66 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <router-link to="/">
+        <div class="logo">
+          <img src="/logo.png" />
+        </div>
+      </router-link>
+      <router-link to="/favorite-recipes">Favorite Recipes</router-link>
+      <router-link to="/share">Share</router-link>
     </div>
-    <router-view/>
+    <div class="content">
+      <router-view />
+    </div>
+    <div class="footer">
+      <a href="https://github.com/sderbidge/creative4">Git Repository</a>
+    </div>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html {
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  background: #fff;
+  padding: 0px;
+  margin: 0px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+/* Header */
+.header {
+  display: flex;
+  padding: 10px 100px 0px 100px;
+  background-color: #6b4111;
+  color: #cc711b;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.content {
+  padding: 20px 100px;
+  min-height: 500px;
+}
+
+/* Footer */
+.footer {
+  height: 50px;
+  padding: 20px 100px 0px 100px;
+  background: #e3e3e3;
+  font-size: 12px;
+}
+
+.footer a {
+  color: #000;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 14px;
 }
 </style>

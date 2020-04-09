@@ -1,18 +1,49 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section class="recipe-collection">
+      <div class="recipe" v-for="recipe in recipes" :key="recipe.id">
+        <h2>{{recipe.title}}</h2>
+        <p>Uploaded by {{recipe.uploadedBy}}</p>
+        <img :src="recipe.path" />
+        <p>{{recipe.ingredients}}</p>
+        <p>{{recipe.description}}</p>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  data() {
+    return {
+      recipes: []
+    };
+  },
+  created() {
+    this.getRecipes();
+  },
+  methods: {
+    async getRecipes() {
+      try {
+        let response = await axios.get("/api/recipes");
+        this.recipes = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
-}
+};
 </script>
+
+<style scoped>
+.recipe {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 15px;
+}
+</style>
