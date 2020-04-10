@@ -67,7 +67,7 @@ img {
   margin: 10px;
 }
 
-.recipe {
+#saved {
   margin: 10px;
   padding: 15px;
   border-radius: 15px;
