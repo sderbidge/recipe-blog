@@ -12,9 +12,6 @@
           <p>{{recipe.directions}}</p>
           <button id="unsave" @click="unfavoriteRecipe(recipe)">Unfavorite Recipe</button>
         </div>
-        <div v-else>
-          <h1>No favorited recipes!</h1>
-        </div>
       </div>
     </section>
   </div>
